@@ -7,12 +7,16 @@ const ingredients = [
   "Condiments",
 ];
 
-for (let i = 0; i < ingredients.length; i += 1) {
-  const name = ingredients[i];
-  const itemElm = document.createElement("li");
-  itemElm.classList.add("item");
-  itemElm.textContent = `${name}`;
+const ingredientsEl = document.querySelector("#ingredients");
 
-  const listElm = document.getElementById("ingredients");
-  listElm.append(itemElm);
-}
+console.log(ingredientsEl);
+console.log(ingredients);
+
+const listRefs = ingredients.map((ingredient) => {
+  const listRef = document.createElement("li");
+  listRef.textContent = ingredient;
+  listRef.classList.add("item");
+  return listRef;
+});
+
+ingredientsEl.append(...listRefs);
